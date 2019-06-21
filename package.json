@@ -1,0 +1,37 @@
+{
+  "name": "apollo-server-test",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "apollo-server": "^2.6.3",
+    "apollo-server-koa": "^2.6.3",
+    "axios": "^0.19.0",
+    "graphql": "^14.3.1",
+    "graphql-playground-middleware": "^1.1.2",
+    "graphql-subscriptions": "^1.1.0",
+    "koa": "^2.7.0",
+    "koa-cors": "^0.0.16",
+    "koa-router": "^7.4.0"
+  },
+  "scripts": {
+    "clean": "rimraf lib",
+    "start": "node lib/index.js",
+    "test": "jest --coverage",
+    "test:watch": "jest --watch",
+    "babel-node": "./node_modules/.bin/babel-node src/index.js",
+    "nodemon": "nodemon --exec npm run babel-node -- src/index.js",
+    "build": "npm run clean && mkdir -p lib && ./node_modules/.bin/babel src -s -D -d lib",
+    "lint": "./node_modules/.bin/eslint src/*.js",
+    "prepush": "yarn run lint",
+    "prepublish": "yarn run build"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/node": "^7.4.5",
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/preset-env": "^7.4.5",
+    "eslint": "^5.16.0",
+    "nodemon": "^1.19.1"
+  }
+}
